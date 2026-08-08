@@ -1,0 +1,20 @@
+{
+  "name": "part2-debug",
+  "version": "1.0.0",
+  "private": true,
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "dependencies": {
+    "firebase-admin": "^11.11.1",
+    "firebase-functions": "^4.9.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0"
+  }
+}

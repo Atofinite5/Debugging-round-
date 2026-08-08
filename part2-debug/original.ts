@@ -8,7 +8,7 @@ teacherId: string;
 slot: string; // ISO datetime string
 subject: string;
 }
-export const bookSession = functions.https.onCall(async (data: BookingRequest, context) => {
+export const bookSession = functions.https.onCall((data: BookingRequest, context) => {
 const booking = {
 studentId: data.studentId,
 teacherId: data.teacherId,
@@ -19,7 +19,7 @@ createdAt: new Date(),
 };
 const teacherRef = db.collection("teachers").doc(data.teacherId);
 const existing = teacherRef.collection("bookings").where("slot", "==", data.slot).get();
-if ((await existing).docs.length > 0) {
+if (existing.docs.length > 0) {
 return { success: false, message: "Slot already booked" };
 }
 
